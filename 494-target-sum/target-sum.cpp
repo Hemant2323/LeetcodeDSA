@@ -7,10 +7,10 @@ public:
         if(dp[index][sum+x]!=-1){
             return dp[index][sum+x];
         }
-        int add=solve(nums, index + 1, sum + nums[index], n, target,dp,x);
-        int sub= solve(nums, index + 1, sum - nums[index], n, target,dp,x);
+        return dp[index][sum+x]= solve(nums, index + 1, sum + nums[index], n, target,dp,x)+
+         solve(nums, index + 1, sum - nums[index], n, target,dp,x);
 
-        return dp[index][sum+x]=add+sub;
+       
         
     }
     int findTargetSumWays(vector<int>& nums, int target) {
