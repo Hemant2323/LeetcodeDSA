@@ -42,8 +42,9 @@ public:
                     curr[buy] = max(sell, not_sell);
                 }
 
-                ahead=curr;
+                
             }
+            ahead=curr;
         }
         return ahead[1];
     }
