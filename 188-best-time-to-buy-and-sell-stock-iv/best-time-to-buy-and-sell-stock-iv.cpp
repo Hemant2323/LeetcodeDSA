@@ -23,8 +23,9 @@ public:
 
                     //ahead=curr;
                 }
-                ahead=curr;
+                
             }
+            ahead=curr;
         }
         return ahead[1][k];
     }
