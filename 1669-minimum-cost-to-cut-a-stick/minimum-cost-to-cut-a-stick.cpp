@@ -23,7 +23,7 @@ public:
         reverse(cuts.begin(),cuts.end());
         int nn=cuts.size()-1;
 
-        vector<vector<int>>dp(nn+1,vector<int>(n+1,-1));
+        vector<vector<int>>dp(nn,vector<int>(nn,-1));
 
         return f(1,nn-1,cuts,dp);
 
