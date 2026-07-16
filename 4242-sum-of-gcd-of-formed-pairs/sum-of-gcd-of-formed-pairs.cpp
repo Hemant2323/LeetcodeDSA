@@ -10,33 +10,30 @@ public:
     }
     long long gcdSum(vector<int>& nums) {
 
-        vector<int> mx;
         int n = nums.size();
-        int maxx = nums[0];
-        for (int i = 0; i < n; i++) {
-             maxx = max(nums[i], maxx);
-            mx.push_back(maxx);
-        }
 
         vector<int> prefixgcd;
-        for(int i=0;i<mx.size();i++){
-            int x=gcd(nums[i],mx[i]);
-            prefixgcd.push_back(x);
+        prefixgcd.reserve(n);
+
+        int maxx = nums[0];
+
+        for (int i = 0; i < n; i++) {
+            maxx = max(maxx, nums[i]);
+            prefixgcd.push_back(gcd(nums[i], maxx));
         }
 
+        sort(prefixgcd.begin(), prefixgcd.end());
 
-        sort(prefixgcd.begin(),prefixgcd.end());
-        int i=0,j=n-1;
-        long long sum=0;
-        while(i<j){
-            int x=gcd(prefixgcd[i],prefixgcd[j]);
-            sum+=x;
+        int i = 0;
+        int j = n - 1;
+        long long sum = 0;
+
+        while (i < j) {
+            sum += gcd(prefixgcd[i], prefixgcd[j]);
             i++;
             j--;
         }
 
         return sum;
-        
-
     }
 };
