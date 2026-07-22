@@ -23,13 +23,7 @@ public:
 
             st.push(nums[i]);
         }
-        int x= res.size()-1;
-        for(int i=0;i<n;i++){
-            if(nums[i]>nums[n]){
-                res[x]=nums[i];
-                break;
-            }
-        }
+       
         return res;
     }
 };
