@@ -20,20 +20,32 @@ public:
             st.pop();
         }
         reverse(res.begin(),res.end());
-        string ans="";
-        int x;
-        for(int i=0;i<res.size();i++){
-            if(res[i]-'0' >0){
-                x=i;
-                break;
-            }
+        // string ans="";
+        // int x;
+        // for(int i=0;i<res.size();i++){
+        //     if(res[i]-'0' >0){
+        //         x=i;
+        //         break;
+        //     }
+        // }
+        // for(int i=x;i<res.size();i++){
+        //     ans+=res[i];
+        // }
+        // if(ans==""){
+        //     return "0";
+        // }
+        // return ans;
+        int i = 0;
+        while (i < res.size() && res[i] == '0') {
+            i++;
         }
-        for(int i=x;i<res.size();i++){
-            ans+=res[i];
-        }
-        if(ans==""){
+
+        res = res.substr(i);
+
+        if (res.empty()) {
             return "0";
         }
-        return ans;
+
+        return res;
     }
 };
