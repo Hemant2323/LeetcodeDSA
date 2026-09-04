@@ -1,32 +1,7 @@
 class Solution {
 public:
     string sortVowels(string s) {
-        // int x=s.size();
-        // vector<char> v;
-        // vector<char> c(x,' ');
-        // for(int i=0;i<x;i++){
-        //     if(s[i]=='a'|| s[i]=='e'|| s[i]=='i'|| s[i]=='o'|| s[i]=='u'||
-        //     s[i]=='A'|| s[i]=='E'|| s[i]=='I'|| s[i]=='O'|| s[i]=='U'){
-        //         v.push_back(s[i]);
-        //     }
-        //     else{
-        //         c[i]=s[i];
-        //     }
-        // }
-        // sort(v.begin(),v.end());
-        // int index=0;
-        // for(int i=0;i<x;i++){
-        //     if(c[i]==' '){
-        //         c[i]=v[index];
-        //         index++;
-        //     }
-        // }
-        // string res="";
-        // for(int i=0;i<x;i++){
-        //     char ch=c[i];
-        //     res+=ch;
-        // }
-        // return res;
+    
 
         int x = s.size();
 
@@ -40,13 +15,27 @@ public:
             }
         }
 
-        sort(vowel.begin(), vowel.end());
+      //  sort(vowel.begin(), vowel.end());
+      vector<int> v(123,0);
+      for(int i=0;i<vowel.size();i++){
+        int x=(int)vowel[i];
+        v[x]++;
+      }
+      string sortedvowel="";
+      for(int i=0;i<123;i++){
+        if(v[i]>0){
+            while(v[i]>0){
+                sortedvowel+=(char)i;
+                v[i]--;
+            }
+        }
+      }
         int index = 0;
         for (int i = 0; i < x; i++) {
             if (s[i] == 'a' || s[i] == 'e' || s[i] == 'i' || s[i] == 'o' ||
                 s[i] == 'u' || s[i] == 'A' || s[i] == 'E' || s[i] == 'I' ||
                 s[i] == 'O' || s[i] == 'U'){
-                    s[i]=vowel[index];
+                    s[i]=sortedvowel[index];
                     index++;
                 }
         }
